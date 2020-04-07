@@ -1,0 +1,148 @@
+
+<div class="fondo-negro animated fadeIn" [ngClass]="_crearUsuarioService.oculto">
+    <div class="modal" style="display: block;" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- Contenedor de encabezado-->
+                    <h5 class="modal-title"> Agregar Usuario Nuevo </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card new-contact">
+                                    <!--<div class="new-contact__header">
+                                        <input type="file" id="upload_img" class="zmdi-camera new-contact__upload" style="display: none" (change)="seleccionarImagen($event.target.files[0])">
+                                        <a class="zmdi zmdi-camera new-contact__upload" (click)="mostrarFile()"></a>
+                                        
+                                        <div class="mt-3 text-center">
+                                            <button type="button" class="btn btn-primary">Actualizar imagen</button>
+                                        </div>
+                                    </div>-->
+
+                                    <div class="card-body">
+                                        <form ngNativeValidate [formGroup]="newUser" (ngSubmit)="registrar()">
+                                            <div class="row">
+                                                
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Nombre</label>
+                                                        <input formControlName="nombre" name="nombre" type="text" class="form-control" [ngClass]="{
+                                                            'is-invalid': newUser.get('nombre').touched && !newUser.get('nombre').valid,
+                                                            'is-valid': newUser.get('nombre').valid
+                                                        }">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Apellido Paterno</label>
+                                                        <input formControlName="apellidoP" name="apellidoP" type="text" class="form-control" [ngClass]="{
+                                                            'is-invalid': newUser.get('apellidoP').touched && !newUser.get('apellidoP').valid,
+                                                            'is-valid': newUser.get('apellidoP').valid
+                                                        }">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>Apellido Materno</label>
+                                                            <input formControlName="apellidoM" name="apellidoM" type="text" class="form-control" [ngClass]="{
+                                                                'is-invalid': newUser.get('apellidoM').touched && !newUser.get('apellidoM').valid,
+                                                                'is-valid': newUser.get('apellidoM').valid
+                                                            }">
+                                                        </div>
+                                                    
+                                                </div>
+                                            
+                                            
+                                                <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Email</label>
+                                                            <input formControlName="email" name="email" type="email" class="form-control" [ngClass]="{
+                                                                'is-invalid': newUser.get('email').touched && !newUser.get('email').valid,
+                                                                'is-valid': newUser.get('email').valid
+                                                            }">
+                                                        </div>
+                                                    
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                        <div class="form-group"><label>Rol</label>
+                                                            <select  formControlName="role" name="role" class="form-control" [ngClass]="{
+                                                                'is-invalid': newUser.get('role').touched && !newUser.get('role').valid,
+                                                                'is-valid': newUser.get('role').valid
+                                                            }">
+                                                                <option value="ADMIN_ROLE">ADMIN ROLE</option>
+                                                                <option value="USER_ROLE">USER ROLE</option>
+                                                            </select></div>
+                                                    
+                                                </div>
+                                            
+                                            
+                                                    <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>Password</label>
+                                                                <input formControlName="password"  name="password" type="password" class="form-control"  [ngClass]="{
+                                                                    'is-invalid': newUser.get('password').touched && !newUser.get('password').valid,
+                                                                    'is-valid': newUser.get('password').valid
+                                                                }" required>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Confirmar Password</label>
+                                                                    <input formControlName="password1"  name="password1" type="password" class="form-control"  [ngClass]="{
+                                                                        'is-invalid': newUser.get('password1').touched && !newUser.get('password1').valid,
+                                                                        'is-valid': newUser.get('password1').valid
+                                                                    }" required>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            
+                                                            <div class="col-md-12" *ngIf="newUser.errors?.sonIguales && newUser.get('password1').touched">
+                                                                    <div class="form-group">
+                                                                            <p class="text-danger">
+                                                                                    Las contraseñas deben ser iguales
+                                                                            </p>
+                                                                            
+                                                                        </div>
+                                                            </div>
+                                                            
+                                                        
+                                            
+                                                    <div class="col-md-12">
+                                                            <div class="form-group"><label>Status</label>
+                                                                <select  formControlName="status" name="status" class="form-control" [ngClass]="{
+                                                                    'is-invalid': newUser.get('status').touched && !newUser.get('status').valid,
+                                                                    'is-valid': newUser.get('status').valid
+                                                                }">
+                                                                    <option value="ACTIVO">ACTIVO</option>
+                                                                    <option value="INACTIVO">INACTIVO</option>
+                                                                </select></div>
+                                                        
+                                                    </div>
+
+                                                </div>
+                                                        <div class="clearfix"></div>
+    
+                                            
+
+                                            <div class="mt-5 text-center">
+                                                <button type="submit" class="btn btn-primary">Guardar Usuario</button>
+                                                <a class="btn btn-light" (click)="_crearUsuarioService.cancelarModalCrearUsuario()">Cancelar</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Aqui termina formulario-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

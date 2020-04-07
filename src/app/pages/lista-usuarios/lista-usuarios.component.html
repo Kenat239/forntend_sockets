@@ -1,0 +1,78 @@
+
+
+<header class="content__title"></header>
+<h1>Lista de usuarios registrados en sistema</h1><small>TOTAL: {{ totalRegistros }}</small>
+<hr>
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-sm-12 ">
+        <form class="search">
+            <div class="search__inner">
+                <input #input (keyup)="buscarUsuarios( input.value )" type="text" class="search__text" placeholder="Busqueda usuario...">
+                <i class="zmdi zmdi-search search__helper" data-sa-action="search-close"></i>
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr>
+
+<!--<div class="toolbar">
+        <div class="actions">
+            <i class="actions__item zmdi zmdi-search" data-sa-action="toolbar-search-open"></i>
+        </div>
+
+        <div class="toolbar__search">
+                
+            <input #input (keyup)="buscarUsuarios( input.value )" type="text" placeholder="Buscar usuario...">
+            <i class="toolbar__search__close zmdi zmdi-long-arrow-left" data-sa-action="toolbar-search-close"></i>
+            
+        </div>
+
+    </div>-->
+    <div class="contacts row">
+            <div class="col-xl-2 col-lg-3 col-sm-4 col-6" *ngFor="let usuario of usuarios">
+                    <div class="contacts__item">
+                        <a href="" class="contacts__img">
+                            <img [src]=" usuario.img | imagen" alt="">
+                        </a>
+        
+                        <div class="contacts__info">
+                            <strong>{{ usuario.nombre }} {{ usuario.apellidoP }} {{ usuario.apellidoM }}</strong>
+                            <small>{{ usuario.email }}</small>
+                            <small>{{ usuario.role }}</small>
+                        </div>
+                        
+                        <button (click)="_crearUsuarioService.mostrarModalCrearUsuario(usuario._id)" class="contacts__btn"><i class="zmdi zmdi-edit"></i></button>
+                        <!--<button class="contacts__btn"><i class="zmdi zmdi-minus-circle"></i></button>-->
+                    </div>
+            </div>
+    </div>
+    <nav>
+        <ul class="pagination justify-content-center">
+            <li class="page-item pagination-first"><a class="page-link" href="#"></a></li>
+            <li class="page-item pagination-prev"><a class="page-link" href="#"></a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item"><a class="page-link" href="#">6</a></li>
+            <li class="page-item pagination-next"><a class="page-link" href="#"></a></li>
+            <li class="page-item pagination-last"><a class="page-link" href="#"></a></li>
+        </ul>
+    </nav>
+
+    <a (click)="_crearUsuarioService.mostrarModalCrearUsuario()" class="btn btn-light btn--action btn--fixed"><i class="zmdi zmdi-plus"></i></a>
+    
+
+
+
+
+    
+       
+
+       
+         
+        
+
+    

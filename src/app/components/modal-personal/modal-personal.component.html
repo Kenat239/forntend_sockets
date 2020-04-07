@@ -1,0 +1,110 @@
+<div class="fondo-negro animated fadeIn" [ngClass]="_mpersonalService.oculto">
+    <div class="modal" style="display: block;" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                </div>
+
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card new-contact">
+                                    <div class="new-contact__header">
+
+                                    </div>
+                                    <div class="card-body">
+                                        <form [formGroup]="personaNueva">
+
+                                            <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Nombre</label>
+                                                        <input type="text" formControlName="nombre" class="form-control mayus" [ngClass]="{
+                                                            'is-invalid': personaNueva.get('nombre').touched && !personaNueva.get('nombre').valid,
+                                                            'is-valid': personaNueva.get('nombre').valid
+                                                        }" autocomplete="off">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Apellido Paterno</label>
+                                                        <input type="text" formControlName="apellidoP" class="form-control mayus" [ngClass]="{
+                                                        'is-invalid': personaNueva.get('apellidoP').touched && personaNueva.get('apellidoP').invalid,
+                                                        'is-valid': personaNueva.get('apellidoP').valid }" autocomplete="off">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Apellido Materno</label>
+                                                        <input type="text" formControlName="apellidoM" class="form-control mayus" [ngClass]="{
+                                                            'is-invalid': personaNueva.get('apellidoM').touched && personaNueva.get('apellidoM').invalid,
+                                                            'is-valid': personaNueva.get('apellidoM').valid
+                                                        }">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Telefono Celular</label>
+                                                        <input type="tel" formControlName="celular" class="form-control" mask="(00) 0000-0000" maxlength="14" [ngClass]="{
+                                                            'is-invalid': personaNueva.get('celular').touched && personaNueva.get('celular').invalid,
+                                                            'is-valid': personaNueva.get('celular').valid
+                                                        }">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Telefono de Casa</label>
+                                                        <input type="text" formControlName="tCasa" class="form-control" mask="(00) 0000-0000" maxlength="14">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="email" formControlName="email" class="form-control minus" [ngClass]="{
+                                                            'is-invalid': personaNueva.get('email').touched && personaNueva.get('email').invalid,
+                                                            'is-valid': personaNueva.get('email').valid
+                                                        }">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>NSS</label>
+                                                        <input type="text" class="form-control mayus" pattern="[0-9]{11}" maxlength="11">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Fecha de ingreso</label>
+                                                        <input type="text" class="form-control date-picker flatpickr-input" readonly="readonly">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="mt-5 text-center">
+                                                <button type="button" class="btn btn-primary">Actualizar</button>
+                                                <a class="btn btn-light" (click)="oculto = _mpersonalService.ocultarModalPersonal()">Cancelar</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

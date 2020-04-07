@@ -1,0 +1,82 @@
+.sidebar {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    z-index: 101;
+    background-color: rgba(0, 0, 0, 0.125);
+    padding: 15px;
+}
+
+@media (min-width: 1200px) {
+    .sidebar:not(.sidebar--hidden) {
+        top: 72px;
+        height: calc(100% - 72px);
+    }
+}
+
+@media (max-width: 1199px) {
+    .sidebar {
+        background-color: rgba(0, 0, 0, 0.96);
+        transition: opacity 300ms, -webkit-transform 300ms;
+        transition: transform 300ms, opacity 300ms;
+        transition: transform 300ms, opacity 300ms, -webkit-transform 300ms;
+    }
+    .sidebar:not(.toggled) {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+    .sidebar.toggled {
+        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.25);
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    .sidebar .user__info {
+        background-color: rgba(255, 255, 255, 0.09);
+    }
+    .sidebar .user__info:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.sidebar .scrollbar-inner>.scroll-element {
+    margin-right: 0;
+}
+
+.sidebar--hidden {
+    background-color: rgba(0, 0, 0, 0.96);
+    transition: opacity 300ms, -webkit-transform 300ms;
+    transition: transform 300ms, opacity 300ms;
+    transition: transform 300ms, opacity 300ms, -webkit-transform 300ms;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sidebar--hidden:not(.toggled) {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+
+.sidebar--hidden.toggled {
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.25);
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.sidebar--hidden .user__info {
+    background-color: rgba(255, 255, 255, 0.09);
+}
+
+.sidebar--hidden .user__info:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar__inner {
+    padding: 30px 2rem 0.5rem 2rem;
+}

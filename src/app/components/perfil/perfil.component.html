@@ -1,0 +1,71 @@
+<div class="fondo-negro animated fadeIn" [ngClass]="_perfilService.oculto">
+    <div class="modal" style="display: block;" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- Contenedor de encabezado-->
+                    <h5 class="modal-title">Perfil de Usuario</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card new-contact">
+                                    <div class="new-contact__header">
+                                        <input type="file" id="upload_img" class="zmdi-camera new-contact__upload" style="display: none" (change)="seleccionarImagen($event.target.files[0])">
+                                        <a class="zmdi zmdi-camera new-contact__upload" (click)="mostrarFile()"></a>
+                                        <img *ngIf="!imagenTemp" class="new-contact__img" [srcset]="usuario.img | imagen">
+                                        <img *ngIf="imagenTemp" class="new-contact__img" [src]="imagenTemp">
+                                        <!-- <div class="mt-3 text-center">
+                                            <button type="button" class="btn btn-primary">Actualizar imagen</button>
+                                        </div> -->
+                                    </div>
+
+                                    <div class="card-body">
+                                        <form NgNativeValidate [formGroup]="actualizarPerfil">
+                                            <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Nombre</label>
+                                                        <input type="text" formControlName="nombre" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Apellido Paterno</label>
+                                                        <input type="text" formControlName="apellidoP" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label>Apellido Materno</label>
+                                                    <input type="text" formControlName="apellidoM" class="form-control">
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <label>Email</label>
+                                                    <input type="email" formControlName="email" class="form-control">
+                                                </div>
+
+                                                <div class="clearfix"></div>
+
+                                            </div>
+
+                                            <div class="mt-5 text-center">
+                                                <button type="button" class="btn btn-primary" [disabled]="!actualizarPerfil.valid" (click)="modificarUsuario(this.actualizarPerfil.value)">Actualizar</button>
+                                                <a class="btn btn-light" (click)="oculto = _perfilService.ocultarModalPerfil()">Cancelar</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Aqui termina formulario-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
